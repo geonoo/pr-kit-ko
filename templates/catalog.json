@@ -1,0 +1,54 @@
+{
+  "free": [
+    {
+      "id": "pr-default-ko",
+      "kind": "pr",
+      "title": "기본 PR (한국어)",
+      "file": "pr-default-ko.md"
+    },
+    {
+      "id": "commit-conventional-ko",
+      "kind": "commit",
+      "title": "Conventional Commits (한국어 본문)",
+      "file": "commit-conventional-ko.md"
+    },
+    {
+      "id": "checklist-review-ko",
+      "kind": "checklist",
+      "title": "리뷰 전 체크리스트",
+      "file": "checklist-review-ko.md"
+    }
+  ],
+  "pro": [
+    {
+      "id": "pr-feature-ko",
+      "kind": "pr",
+      "title": "기능 추가 PR",
+      "file": "pr-feature-ko.md"
+    },
+    {
+      "id": "pr-bugfix-ko",
+      "kind": "pr",
+      "title": "버그 수정 PR",
+      "file": "pr-bugfix-ko.md"
+    },
+    {
+      "id": "commit-team-ko",
+      "kind": "commit",
+      "title": "팀 커밋 규칙",
+      "file": "commit-team-ko.md"
+    },
+    {
+      "id": "checklist-release-ko",
+      "kind": "checklist",
+      "title": "릴리즈 체크리스트",
+      "file": "checklist-release-ko.md"
+    },
+    {
+      "id": "agent-pr-ko",
+      "kind": "agent",
+      "title": "에이전트용 PR 작성 프롬프트",
+      "file": "agent-pr-ko.md"
+    }
+  ]
+}

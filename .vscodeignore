@@ -1,0 +1,7 @@
+.vscode/**
+.vscode-test/**
+.gitignore
+test.mjs
+test-integration.mjs
+**/*.vsix
+.DS_Store
