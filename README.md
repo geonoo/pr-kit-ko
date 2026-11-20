@@ -4,10 +4,13 @@ VS Code / Cursor에서 **한국어 PR 템플릿 · 커밋 규칙 · 체크리스
 
 ## 설치
 
-1. `.vsix`를 받거나 Marketplace에서 설치
-2. 명령 팔레트(`Cmd+Shift+P`)에서 `PR Kit:` 검색
+1. [GitHub Releases](https://github.com/geonoo/pr-kit-ko/releases)에서 `.vsix` 받기  
+   (또는 VS Marketplace — 등록 후 이 문단에 링크 추가)
+2. Cursor / VS Code → Extensions → **Install from VSIX…**
+3. 명령 팔레트(`Cmd+Shift+P`)에서 `PR Kit:` 검색
 
-Cursor에서도 동일하게 Extensions → Install from VSIX로 설치할 수 있습니다.
+소개 글: https://geonoo.tistory.com/220  
+Pro 판매: Gumroad (등록 후 링크 추가) — 미리보기 키 `PRKIT-PRO-DEMO-2026`
 
 ## 무료
 

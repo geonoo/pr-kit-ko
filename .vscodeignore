@@ -3,5 +3,6 @@
 .gitignore
 test.mjs
 test-integration.mjs
+GUMROAD.md
 **/*.vsix
 .DS_Store
