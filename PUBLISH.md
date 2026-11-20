@@ -23,5 +23,14 @@
   node -e 'console.log(require("./proLicense").issueKey("BUYERNAME"))'
   ```
 
-## 4. 블로그
+## 4. Open VSX (대기)
+- 배포됨: `geonoo.pr-kit-ko` 0.1.1 (namespace 미검증이라 공개 검색 비활성)
+- namespace 클레임: https://github.com/EclipseFdn/open-vsx.org/issues/16009
+- 승인 후 공개 URL: https://open-vsx.org/extension/geonoo/pr-kit-ko
+- Trusted Publisher는 namespace 소유권 + 활성 버전이 생긴 뒤 Settings → Trusted Publishers에서 등록
+  - owner `geonoo` / repo `pr-kit-ko` / workflow `publish.yml`
+  - 이후 릴리즈는 GitHub Actions `openvsx` job이 `ovsx publish --trusted-publishing` 으로 올린다
+
+## 5. 블로그
 - 티스토리: https://geonoo.tistory.com/220 — Marketplace + Gumroad 링크
+- Open VSX 링크는 namespace 승인 후 추가

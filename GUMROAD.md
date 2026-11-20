@@ -47,3 +47,7 @@ Pro 키를 넣으면 아래가 열립니다.
 - 데모/수동 발급 키(`PRKIT-…`)는 오프라인 체크섬으로 유지
 
 Content 탭 → Insert → License key 블록이 있어야 판매마다 키가 나갑니다.
+
+## 커버 이미지
+- Cover (가로, ≥1280×720): `media/blog/pr-kit-thumbnail-wide.jpg` — 상품 페이지에 업로드됨
+- Thumbnail (정사각, ≥600): `media/blog/pr-kit-thumbnail.jpg` — 편집 화면 Thumbnail → Upload 로 올리면 Discover/라이브러리 썸네일이 된다

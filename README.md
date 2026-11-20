@@ -4,8 +4,8 @@ VS Code / Cursor에서 **한국어 PR 템플릿 · 커밋 규칙 · 체크리스
 
 ## 설치
 
-1. **VS Marketplace:** [geonoo.pr-kit-ko](https://marketplace.visualstudio.com/items?itemName=geonoo.pr-kit-ko)  
-   또는 Cursor/VS Code 확장 검색창에 `PR Kit` / `geonoo.pr-kit-ko`
+1. **VS Code:** [Marketplace `geonoo.pr-kit-ko`](https://marketplace.visualstudio.com/items?itemName=geonoo.pr-kit-ko)에서 설치  
+   Cursor는 Open VSX를 씁니다. namespace 승인 후 같은 ID로 검색됩니다.
 2. (대안) [GitHub Releases](https://github.com/geonoo/pr-kit-ko/releases) `.vsix` → Install from VSIX…
 3. 명령 팔레트(`Cmd+Shift+P`)에서 `PR Kit:` 검색
 
