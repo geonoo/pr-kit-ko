@@ -10,7 +10,7 @@ VS Code / Cursor에서 **한국어 PR 템플릿 · 커밋 규칙 · 체크리스
 3. 명령 팔레트(`Cmd+Shift+P`)에서 `PR Kit:` 검색
 
 소개 글: https://geonoo.tistory.com/220  
-Pro 미리보기 키: `PRKIT-PRO-DEMO-2026` (Gumroad 판매 페이지는 준비 중)
+Pro: [Gumroad $9](https://yungster52.gumroad.com/l/pr-kit-pro) · 미리보기 키 `PRKIT-PRO-DEMO-2026`
 
 ## 무료
 
@@ -33,7 +33,7 @@ Pro 미리보기 키: `PRKIT-PRO-DEMO-2026` (Gumroad 판매 페이지는 준비 
 - `AGENT_PR_PROMPT.md` 워크스페이스 생성
 
 미리보기 데모 키: `PRKIT-PRO-DEMO-2026`  
-(정식 키는 Gumroad 등에서 발급 — 판매 페이지는 추후 연결)
+정식 키: [Gumroad](https://yungster52.gumroad.com/l/pr-kit-pro)
 
 ## 커스텀 템플릿 (Pro)
 

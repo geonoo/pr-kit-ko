@@ -1,4 +1,6 @@
-# Gumroad 상품 초안 — PR Kit Pro
+# Gumroad 상품 — PR Kit Pro
+
+판매 페이지: https://yungster52.gumroad.com/l/pr-kit-pro
 
 ## 상품명
 PR Kit Pro — 한국어 PR/커밋 규칙 팩 (VS Code · Cursor)

@@ -13,15 +13,13 @@
   npx @vscode/vsce publish -p <PAT>
   ```
 
-## 3. Gumroad (남음)
-1. https://gumroad.com/login 로그인
-2. New product — 이름/가격/설명은 `GUMROAD.md` ($9)
-3. Content에 Marketplace 설치 링크 + 라이선스 키 안내
-4. 키 발급:
-   ```bash
-   node -e 'console.log(require("./proLicense").issueKey("BUYERNAME"))'
-   ```
-5. Publish 후 URL을 README·티스토리 글에 넣기
+## 3. Gumroad (완료)
+- 상품: https://yungster52.gumroad.com/l/pr-kit-pro ($9)
+- 편집: https://gumroad.com/products/knihh/edit
+- 구매 후 키는 수동 발급:
+  ```bash
+  node -e 'console.log(require("./proLicense").issueKey("BUYERNAME"))'
+  ```
 
 ## 4. 블로그
-- 티스토리: https://geonoo.tistory.com/220 — Marketplace 링크 반영
+- 티스토리: https://geonoo.tistory.com/220 — Marketplace + Gumroad 링크

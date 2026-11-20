@@ -33,7 +33,7 @@ Pro는 팀용 템플릿, 릴리즈 체크리스트, **에이전트용 PR 작성 
 3. `Cmd+Shift+P` → `PR Kit: PR 템플릿 넣기`
 
 Pro 미리보기: 설정 `prKit.licenseKey` = `PRKIT-PRO-DEMO-2026`  
-Gumroad 판매 페이지는 곧 연결합니다.
+Pro: https://yungster52.gumroad.com/l/pr-kit-pro
 
 ## 왜 만들었나
 
