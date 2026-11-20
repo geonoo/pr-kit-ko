@@ -2,7 +2,7 @@
   "name": "pr-kit-ko",
   "displayName": "PR Kit — 한국어 PR/커밋 규칙",
   "description": "한국어 PR 템플릿, 커밋 메시지 규칙, 체크리스트를 워크스페이스에 바로 넣습니다.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "geonoo",
   "engines": {
     "vscode": "^1.85.0"
@@ -56,7 +56,7 @@
         "prKit.licenseKey": {
           "type": "string",
           "default": "",
-          "description": "Pro 라이선스 키. 비어 있으면 무료 템플릿 3개만 사용할 수 있습니다."
+          "description": "Pro 라이선스 키. Gumroad 영수증의 키 또는 데모 키 PRKIT-PRO-DEMO-2026."
         },
         "prKit.customTemplatesPath": {
           "type": "string",

@@ -25,7 +25,7 @@ Pro: [Gumroad $9](https://yungster52.gumroad.com/l/pr-kit-pro) · 미리보기 �
 
 ## Pro
 
-설정 `prKit.licenseKey`에 키를 넣으면:
+[Gumroad](https://yungster52.gumroad.com/l/pr-kit-pro) 결제 후 영수증의 키를 설정 `prKit.licenseKey`에 넣으면:
 
 - 기능/버그 PR 템플릿, 팀 커밋 규칙, 릴리즈 체크리스트
 - `PR Kit: 에이전트 프롬프트 넣기` (Cursor/에이전트용 PR 작성 프롬프트)
@@ -53,7 +53,7 @@ Pro: [Gumroad $9](https://yungster52.gumroad.com/l/pr-kit-pro) · 미리보기 �
 
 ```bash
 npm test
-npm run package   # pr-kit-ko-0.1.0.vsix
+npm run package   # pr-kit-ko-0.1.1.vsix
 ```
 
 F5로 Extension Development Host에서 디버깅할 수 있습니다.

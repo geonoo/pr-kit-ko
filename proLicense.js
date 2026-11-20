@@ -1,9 +1,13 @@
 /**
- * Offline Pro key check.
- * Accepted:
- * - Demo: PRKIT-PRO-DEMO-2026
- * - Issued: PRKIT-XXXX-XXXX-XXXX where last group is checksum of the middle 8 chars
+ * Pro key check.
+ * - Demo: PRKIT-PRO-DEMO-2026 (offline)
+ * - Issued: PRKIT-XXXX-XXXX-XXXX checksum (offline, fallback)
+ * - Gumroad: unique key emailed on purchase, verified via API
  */
+const GUMROAD_PERMALINK = "pr-kit-pro";
+const GUMROAD_PRODUCT_ID = "YZ5322DbQXQWDRpwthyt6g==";
+const GUMROAD_VERIFY_URL = "https://api.gumroad.com/v2/licenses/verify";
+
 function normalize(key) {
   return String(key || "")
     .trim()
@@ -19,7 +23,7 @@ function checksum(part) {
   return (n % 10000).toString().padStart(4, "0");
 }
 
-function isProLicense(key) {
+function isLocalProLicense(key) {
   const k = normalize(key);
   if (!k) {
     return false;
@@ -34,6 +38,10 @@ function isProLicense(key) {
   return checksum(m[1] + m[2]) === m[3];
 }
 
+function isProLicense(key) {
+  return isLocalProLicense(key);
+}
+
 function issueKey(seed) {
   const raw = String(seed || "TEAM")
     .toUpperCase()
@@ -45,4 +53,53 @@ function issueKey(seed) {
   return `PRKIT-${a}-${b}-${checksum(a + b)}`;
 }
 
-module.exports = { isProLicense, issueKey, checksum, normalize };
+async function verifyGumroadLicense(key, fetchImpl) {
+  const raw = String(key || "").trim();
+  if (!raw) {
+    return false;
+  }
+  if (isLocalProLicense(raw)) {
+    return true;
+  }
+  const fetchFn = fetchImpl || globalThis.fetch;
+  if (typeof fetchFn !== "function") {
+    return false;
+  }
+  const body = new URLSearchParams({
+    product_id: GUMROAD_PRODUCT_ID,
+    license_key: raw,
+    increment_uses_count: "false",
+  });
+  const res = await fetchFn(GUMROAD_VERIFY_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  if (res.status >= 500) {
+    throw new Error(`gumroad ${res.status}`);
+  }
+  if (!res.ok) {
+    return false;
+  }
+  const data = await res.json();
+  const purchase = data && data.purchase;
+  return Boolean(
+    data &&
+      data.success &&
+      purchase &&
+      purchase.refunded !== true &&
+      purchase.disputed !== true &&
+      purchase.chargebacked !== true
+  );
+}
+
+module.exports = {
+  isProLicense,
+  isLocalProLicense,
+  issueKey,
+  checksum,
+  normalize,
+  verifyGumroadLicense,
+  GUMROAD_PERMALINK,
+  GUMROAD_PRODUCT_ID,
+};

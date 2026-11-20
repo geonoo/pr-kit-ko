@@ -8,9 +8,8 @@ PR Kit Pro — 한국어 PR/커밋 규칙 팩 (VS Code · Cursor)
 ## 한 줄
 팀 PR·커밋 템플릿 + Cursor 에이전트 프롬프트를 라이선스 키 하나로 잠금 해제.
 
-## 가격 제안
+## 가격
 - $9 — 개인 (1인, 평생 키)
-- $29 — 팀 (최대 10인, 동일 키 공유 가능 / 추후 시트 제한 도입 가능)
 
 ## 상품 설명 (붙여넣기)
 
@@ -27,21 +26,24 @@ Pro 키를 넣으면 아래가 열립니다.
 • 워크스페이스 .pr-kit 커스텀 템플릿
 
 구매 후
-1. Cursor/VS Code에 PR Kit 설치
-2. 설정 → prKit.licenseKey 에 발급 키 입력
-3. 명령 팔레트에서 「PR Kit:」 검색
+1. Cursor/VS Code에 PR Kit 설치 (Marketplace: geonoo.pr-kit-ko)
+2. Gumroad 영수증에 있는 라이선스 키를 복사
+3. 설정 → prKit.licenseKey 에 붙여넣기
+4. 명령 팔레트에서 「PR Kit:」 검색
 
-키 형식 예: PRKIT-XXXX-XXXX-XXXX
-(구매 확인 후 메시지/파일로 키를 보내 드립니다)
+키는 결제 직후 영수증·다운로드 페이지에 자동 표시됩니다.
 
 데모(구매 전 체험): PRKIT-PRO-DEMO-2026
 ```
 
 ## 전달물
-- 텍스트: 라이선스 키 1개 (수동 발급 → 나중에 Gumroad 라이선스 연동)
-- 링크: GitHub Releases의 최신 `.vsix` (또는 Marketplace URL)
+- Gumroad Unique License Key (구매 시 자동 발급)
+- Marketplace: https://marketplace.visualstudio.com/items?itemName=geonoo.pr-kit-ko
 
-## 발급 방법 (당분간 수동)
-```bash
-node -e 'console.log(require("./proLicense").issueKey("BUYERNAME"))'
-```
+## 검증
+확장 `0.1.1+`가 `POST https://api.gumroad.com/v2/licenses/verify` 로 확인합니다.
+- product_id: `YZ5322DbQXQWDRpwthyt6g==`
+- increment_uses_count=false
+- 데모/수동 발급 키(`PRKIT-…`)는 오프라인 체크섬으로 유지
+
+Content 탭 → Insert → License key 블록이 있어야 판매마다 키가 나갑니다.

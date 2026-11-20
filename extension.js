@@ -1,7 +1,7 @@
 const vscode = require("vscode");
 const fs = require("fs");
 const path = require("path");
-const { isProLicense } = require("./proLicense");
+const { isLocalProLicense, verifyGumroadLicense } = require("./proLicense");
 
 const KIND_LABEL = {
   pr: "PR 템플릿",
@@ -25,14 +25,37 @@ function getLicenseKey() {
   ).trim();
 }
 
-function hasPro() {
-  return isProLicense(getLicenseKey());
+const licenseCache = { key: "", ok: false };
+
+async function hasPro() {
+  const key = getLicenseKey();
+  if (!key) {
+    licenseCache.key = "";
+    licenseCache.ok = false;
+    return false;
+  }
+  if (isLocalProLicense(key)) {
+    licenseCache.key = key;
+    licenseCache.ok = true;
+    return true;
+  }
+  if (licenseCache.key === key) {
+    return licenseCache.ok;
+  }
+  try {
+    const ok = await verifyGumroadLicense(key);
+    licenseCache.key = key;
+    licenseCache.ok = ok;
+    return ok;
+  } catch (_err) {
+    return false;
+  }
 }
 
 function entriesForKind(kind) {
   const catalog = loadCatalog();
   const free = catalog.free.filter((e) => e.kind === kind);
-  if (!hasPro()) {
+  if (!licenseCache.ok) {
     return { items: free, locked: catalog.pro.filter((e) => e.kind === kind) };
   }
   const custom = loadCustomEntries(kind);
@@ -89,6 +112,7 @@ function readTemplate(entry) {
 }
 
 async function pickAndInsert(kind) {
+  await hasPro();
   const { items, locked } = entriesForKind(kind);
   if (items.length === 0 && locked.length === 0) {
     vscode.window.showWarningMessage(`사용 가능한 ${KIND_LABEL[kind]}이(가) 없습니다.`);
@@ -117,7 +141,7 @@ async function pickAndInsert(kind) {
   }
   if (chosen.locked) {
     const action = await vscode.window.showInformationMessage(
-      "이 템플릿은 Pro입니다. 라이선스 키를 설정하거나 무료 템플릿을 사용하세요.",
+      "이 템플릿은 Pro입니다. Gumroad 구매 키를 설정하거나 무료 템플릿을 사용하세요.",
       "라이선스 안내",
       "닫기"
     );
@@ -144,6 +168,7 @@ async function pickAndInsert(kind) {
 }
 
 async function applyWorkspaceFiles() {
+  await hasPro();
   const folders = vscode.workspace.workspaceFolders;
   if (!folders || folders.length === 0) {
     vscode.window.showErrorMessage("열린 워크스페이스가 없습니다.");
@@ -165,7 +190,7 @@ async function applyWorkspaceFiles() {
     { path: checklistPath, file: "checklist-review-ko.md", label: "REVIEW_CHECKLIST.md" },
   ];
 
-  if (hasPro()) {
+  if (licenseCache.ok) {
     writes.push({
       path: path.join(root, "AGENT_PR_PROMPT.md"),
       file: "agent-pr-ko.md",
@@ -191,20 +216,20 @@ async function applyWorkspaceFiles() {
   if (skipped.length) {
     parts.push(`이미 있음(건너뜀): ${skipped.join(", ")}`);
   }
-  if (!hasPro()) {
+  if (!licenseCache.ok) {
     parts.push("에이전트 프롬프트 파일은 Pro에서 추가됩니다.");
   }
   vscode.window.showInformationMessage(parts.join(" · ") || "변경 없음");
 }
 
 async function showLicense() {
-  const pro = hasPro();
+  const pro = await hasPro();
   const key = getLicenseKey();
   const msg = pro
     ? "Pro 활성화됨. 팀 템플릿·에이전트 프롬프트·커스텀 .pr-kit 폴더를 사용할 수 있습니다."
     : key
-      ? "라이선스 키가 올바르지 않습니다. 설정 `prKit.licenseKey`를 확인하세요."
-      : "무료 모드: 기본 템플릿 3개. Pro는 Gumroad에서 키를 구매한 뒤 설정에 넣으세요.";
+      ? "라이선스 키가 올바르지 않습니다. Gumroad 영수증의 키를 `prKit.licenseKey`에 넣으세요."
+      : "무료 모드: 기본 템플릿 3개. Pro는 Gumroad 구매 후 영수증 키를 설정에 넣으세요.";
 
   const action = await vscode.window.showInformationMessage(
     msg,

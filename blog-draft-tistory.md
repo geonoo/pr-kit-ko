@@ -23,13 +23,14 @@ Cursor와 VS Code 둘 다 됩니다. (같은 VSIX)
 Pro는 팀용 템플릿, 릴리즈 체크리스트, **에이전트용 PR 작성 프롬프트**, 워크스페이스 `.pr-kit` 커스텀 템플릿을 엽니다.
 
 데모 키로 Pro를 미리 볼 수 있습니다: `PRKIT-PRO-DEMO-2026`  
-설정 키: `prKit.licenseKey`
+설정 키: `prKit.licenseKey`  
+Gumroad 구매 시 라이선스 키가 영수증에 자동 발급됩니다.
 
 ## 설치
 
 1. **VS Marketplace:** https://marketplace.visualstudio.com/items?itemName=geonoo.pr-kit-ko  
    Cursor/VS Code에서 `PR Kit` 또는 `geonoo.pr-kit-ko` 검색 후 설치
-2. (대안) [GitHub Releases](https://github.com/geonoo/pr-kit-ko/releases/tag/v0.1.0) `.vsix` → Install from VSIX…
+2. (대안) [GitHub Releases](https://github.com/geonoo/pr-kit-ko/releases/tag/v0.1.1) `.vsix` → Install from VSIX…
 3. `Cmd+Shift+P` → `PR Kit: PR 템플릿 넣기`
 
 Pro 미리보기: 설정 `prKit.licenseKey` = `PRKIT-PRO-DEMO-2026`  
