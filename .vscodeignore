@@ -4,5 +4,9 @@
 test.mjs
 test-integration.mjs
 GUMROAD.md
+PUBLISH.md
+blog-draft-tistory.md
+media/blog/**
 **/*.vsix
 .DS_Store
+.github/**
